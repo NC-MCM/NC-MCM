@@ -29,9 +29,9 @@ X = data.neuron_traces.T
 B = data.behaviour
 
 #plotting_neuronal_behavioural(X, B, B_names=data.state_names)
-print(X.shape, B.shape)
+
 X_, B_ = prep_data(X, B, win=15)
-print(X_.shape, B_.shape)
+
 ### Deploy BunDLe Net
 model = BunDLeNet(latent_dim=3, num_behaviour=len(data.behaviour_names))
 model.build(input_shape=X_.shape)
@@ -42,8 +42,7 @@ loss_array, _ = train_model(
 	b_type='discrete',
 	gamma=0.9,
 	learning_rate=0.001, 
-	n_epochs=3,
-	initialisation='pca_init'
+	n_epochs=1000
 )
 
 

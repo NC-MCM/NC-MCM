@@ -26,7 +26,7 @@ def test_prep_data_single_time_slice():
     assert np.array_equal(X_paired[1:, 0, :, :], X_paired[:-1, 1, :, :])
 
 
-def test_prep_data_single_large_window():
+def test_prep_data_large_window():
     X = np.random.rand(50, 10)
     B = np.random.rand(50)
     win = 30
